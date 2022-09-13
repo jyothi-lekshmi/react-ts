@@ -5,20 +5,28 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useForm } from 'react-hook-form';
-const Forms: React.FC = () => {
+import { FormDataModel } from '../model/FormDataModel';
+
+interface Props {
+  formData: Array<FormDataModel>;
+  setFormData: React.Dispatch<React.SetStateAction<FormDataModel[]>>;
+  handleAdd: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+
+const Forms: React.FC<Props> = ({ formData, setFormData, handleAdd }) => {
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const onSubmit = (data, e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(data);
-    console.log(errors);
-  };
+  // const handleAdd = (data, e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   console.log(data);
+  //   console.log(errors);
+  // };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(handleAdd)}>
       <Form.Group as={Row} className="mb-3" controlId="formHorizontalFname">
         <Form.Label column sm={2}>
           First Name
