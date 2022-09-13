@@ -57,3 +57,7 @@ table {
 .container {
   margin-top: 50px !important;
 }
+.formHead {
+  padding-bottom: 20px;
+  text-align: center;
+}

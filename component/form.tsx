@@ -44,10 +44,10 @@ const Forms: React.FC<Props> = ({
   return (
     <Form onSubmit={handleSubmit(handleAdd)}>
       <Form.Group as={Row} className="mb-3" controlId="formHorizontalFname">
-        <Form.Label column sm={2}>
+        <Form.Label column sm={4}>
           First Name
         </Form.Label>
-        <Col sm={10}>
+        <Col sm={8}>
           <Form.Control
             name="fname"
             type="text"
@@ -67,10 +67,10 @@ const Forms: React.FC<Props> = ({
         </Col>
       </Form.Group>
       <Form.Group as={Row} className="mb-3" controlId="formHorizontalLname">
-        <Form.Label column sm={2}>
+        <Form.Label column sm={4}>
           Last Name
         </Form.Label>
-        <Col sm={10}>
+        <Col sm={8}>
           <Form.Control
             type="text"
             value={lname}
@@ -90,10 +90,10 @@ const Forms: React.FC<Props> = ({
       </Form.Group>
 
       <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-        <Form.Label column sm={2}>
+        <Form.Label column sm={4}>
           Email
         </Form.Label>
-        <Col sm={10}>
+        <Col sm={8}>
           <Form.Control
             type="text"
             value={email}
@@ -110,10 +110,10 @@ const Forms: React.FC<Props> = ({
         {errors.email?.message && <p>Invalid Email Format</p>}
       </Form.Group>
       <Form.Group as={Row} className="mb-3" controlId="formHorizontalTel">
-        <Form.Label column sm={2}>
+        <Form.Label column sm={4}>
           Telephone
         </Form.Label>
-        <Col sm={10}>
+        <Col sm={8}>
           <Form.Control
             value={tel}
             onChange={(e) => setTel(e.target.value)}

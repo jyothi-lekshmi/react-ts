@@ -33,6 +33,7 @@ const App: React.FC = () => {
   console.log(list);
   return (
     <div className="container">
+      <h1 className="formHead">Add Induvidual</h1>
       <Forms
         formData={formData}
         setFormData={setFormData}
