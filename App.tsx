@@ -32,7 +32,7 @@ const App: React.FC = () => {
   };
   console.log(list);
   return (
-    <div>
+    <div className="container">
       <Forms
         formData={formData}
         setFormData={setFormData}

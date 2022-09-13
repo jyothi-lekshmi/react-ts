@@ -43,7 +43,6 @@ table {
   text-align: left;
 }
 .removeButton {
-  background-color: #4caf50; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -54,4 +53,7 @@ table {
   margin: 4px 2px;
   cursor: pointer;
   background-color: red;
+}
+.container {
+  margin-top: 50px !important;
 }

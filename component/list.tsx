@@ -18,30 +18,22 @@ const List: React.FC<Props> = ({ list, setList }) => {
     const phone = value.replace(/[^\d]/g, '');
     const length = phone.length;
     if (length < 4) {
-      // setPhone(phone);
       return phone;
     }
     if (length < 7) {
-      let formatted = `(${phone.slice(0, 3)}) ${phone.slice(3)})`;
-      // setPhone(formatted);
       return `(${phone.slice(0, 3)}) ${phone.slice(3)})`;
     } else {
       let formattedPhone = `(${phone.slice(0, 3)}) ${phone.slice(
         3,
         6
       )} - ${phone.slice(6, 10)}`;
-      // setPhone(formattedPhone);
       return formattedPhone;
     }
-    return `(${phone.slice(0, 3)}) ${phone.slice(3, 6)} - ${phone.slice(
-      6,
-      10
-    )} )`;
-    console.log(length);
   };
   return (
     <div>
-      <h1>List of People</h1>
+      {list.length > 0 ? <h1>List of People</h1> : <h1></h1>}
+
       {list.map((each) => (
         <div className="row">
           <div className="column">
