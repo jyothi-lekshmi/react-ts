@@ -24,10 +24,10 @@ const App: React.FC = () => {
     if (data) {
       console.log('ghhg--->', data);
       setList([...list, data]);
-      setFname('');
-      setLname('');
-      setEmail('');
-      setTel('');
+      setFname(null);
+      setLname(null);
+      setEmail(null);
+      setTel(null);
     }
   };
   console.log(list);

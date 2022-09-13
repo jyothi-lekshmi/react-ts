@@ -39,7 +39,6 @@ const Forms: React.FC<Props> = ({
     register,
     formState: { errors },
     handleSubmit,
-    resetField,
   } = useForm();
 
   return (
@@ -50,6 +49,7 @@ const Forms: React.FC<Props> = ({
         </Form.Label>
         <Col sm={10}>
           <Form.Control
+            name="fname"
             type="text"
             value={firstName}
             onChange={(e) => setFname(e.target.value)}
