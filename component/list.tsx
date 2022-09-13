@@ -1,38 +1,47 @@
 import * as React from 'react';
 import '../style.css';
-
-const List: React.FC = () => {
+import { FormDataModel } from '../model/FormDataModel';
+interface Props {
+  list: FormDataModel[];
+  setList: React.Dispatch<React.SetStateAction<any[]>>;
+}
+const List: React.FC<Props> = ({ list, setList }) => {
   return (
-    <div className="row">
-      <div className="column">
-        <div className="card">
-          <table>
-            {/* <thead>
-            <tr>
-              <td colSpan={2}> <b>List of People</b></td>
-            </tr>
-          </thead> */}
-            <tbody>
-              <tr>
-                <td>First Name</td>
-                <td>Jyothi</td>
-              </tr>
-              <tr>
-                <td>Last Name</td>
-                <td>Jyothi</td>
-              </tr>
-              <tr>
-                <td>Email</td>
-                <td>Jyothi</td>
-              </tr>
-              <tr>
-                <td>Telephone</td>
-                <td>Jyothi</td>
-              </tr>
-            </tbody>
-          </table>
+    <div>
+      <h1>List of People</h1>
+      {list.map((each) => (
+        <div className="row">
+          <div className="column">
+            <div className="card">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>First Name</td>
+                    <td>{each.fname}</td>
+                  </tr>
+                  <tr>
+                    <td>Last Name</td>
+                    <td>{each.lname}</td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>{each.email}</td>
+                  </tr>
+                  <tr>
+                    <td>Telephone</td>
+                    <td>{each.tel}</td>
+                  </tr>
+                  <tr>
+                    <td colSpan={2} className="removeButton">
+                      Remove
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 };

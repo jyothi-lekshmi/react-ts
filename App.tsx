@@ -12,25 +12,41 @@ interface FormDataModel {
 
 const App: React.FC = () => {
   const [formData, setFormData] = React.useState<Array<FormDataModel>>([]);
+  const [list, setList] = React.useState<Array<any>>([]);
+  const [fname, setFname] = React.useState(null);
+  const [lname, setLname] = React.useState<string>(null);
+  const [email, setEmail] = React.useState(null);
+  const [tel, setTel] = React.useState(null);
 
-  const handleAdd = (e: React.FormEvent) => {
+  const handleAdd = (data, e: React.FormEvent) => {
     e.preventDefault();
 
-    if (formData) {
-      console.log(formData);
-      // setFormData([...todolist, { id: Date.now(), todo, isDone: false }]);
-      // setTodo("");
+    if (data) {
+      console.log('ghhg--->', data);
+      setList([...list, data]);
+      setFname('');
+      setLname('');
+      setEmail('');
+      setTel('');
     }
   };
-
+  console.log(list);
   return (
     <div>
       <Forms
         formData={formData}
         setFormData={setFormData}
+        setFname={setFname}
+        setLname={setLname}
+        setEmail={setEmail}
+        setTel={setTel}
+        firstName={fname}
+        lname={lname}
+        email={email}
+        tel={tel}
         handleAdd={handleAdd}
       />
-      <List />
+      <List list={list} setList={setList} />
     </div>
   );
 };

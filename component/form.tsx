@@ -6,24 +6,41 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useForm } from 'react-hook-form';
 import { FormDataModel } from '../model/FormDataModel';
+import { useState } from 'react';
 
 interface Props {
   formData: Array<FormDataModel>;
   setFormData: React.Dispatch<React.SetStateAction<FormDataModel[]>>;
   handleAdd: (e: React.FormEvent<HTMLFormElement>) => void;
+  setFname: React.Dispatch<React.SetStateAction<string>>;
+  setLname: React.Dispatch<React.SetStateAction<string>>;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
+  setTel: React.Dispatch<React.SetStateAction<string>>;
+  firstName: string;
+  lname: string;
+  email: string;
+  tel: string;
 }
 
-const Forms: React.FC<Props> = ({ formData, setFormData, handleAdd }) => {
+const Forms: React.FC<Props> = ({
+  formData,
+  setFormData,
+  handleAdd,
+  setFname,
+  setLname,
+  setEmail,
+  setTel,
+  firstName,
+  lname,
+  email,
+  tel,
+}) => {
   const {
     register,
     formState: { errors },
     handleSubmit,
+    resetField,
   } = useForm();
-  // const handleAdd = (data, e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   console.log(data);
-  //   console.log(errors);
-  // };
 
   return (
     <Form onSubmit={handleSubmit(handleAdd)}>
@@ -34,6 +51,8 @@ const Forms: React.FC<Props> = ({ formData, setFormData, handleAdd }) => {
         <Col sm={10}>
           <Form.Control
             type="text"
+            value={firstName}
+            onChange={(e) => setFname(e.target.value)}
             placeholder="First Name"
             {...register('fname', {
               pattern: {
@@ -54,6 +73,8 @@ const Forms: React.FC<Props> = ({ formData, setFormData, handleAdd }) => {
         <Col sm={10}>
           <Form.Control
             type="text"
+            value={lname}
+            onChange={(e) => setLname(e.target.value)}
             placeholder="Last Name"
             {...register('lname', {
               pattern: {
@@ -75,6 +96,8 @@ const Forms: React.FC<Props> = ({ formData, setFormData, handleAdd }) => {
         <Col sm={10}>
           <Form.Control
             type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             {...register('email', {
               pattern: {
@@ -92,6 +115,8 @@ const Forms: React.FC<Props> = ({ formData, setFormData, handleAdd }) => {
         </Form.Label>
         <Col sm={10}>
           <Form.Control
+            value={tel}
+            onChange={(e) => setTel(e.target.value)}
             type="tel"
             placeholder="Telephone"
             {...register('tel', {
