@@ -6,6 +6,14 @@ interface Props {
   setList: React.Dispatch<React.SetStateAction<any[]>>;
 }
 const List: React.FC<Props> = ({ list, setList }) => {
+  const deletePerson = (email: string) => {
+    setList(
+      list.filter((each) => {
+        return each.email !== email;
+      })
+    );
+  };
+
   return (
     <div>
       <h1>List of People</h1>
@@ -32,7 +40,11 @@ const List: React.FC<Props> = ({ list, setList }) => {
                     <td>{each.tel}</td>
                   </tr>
                   <tr>
-                    <td colSpan={2} className="removeButton">
+                    <td
+                      colSpan={2}
+                      onClick={() => deletePerson(each.email)}
+                      className="removeButton"
+                    >
                       Remove
                     </td>
                   </tr>
